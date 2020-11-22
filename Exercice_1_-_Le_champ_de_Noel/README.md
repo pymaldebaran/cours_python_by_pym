@@ -51,3 +51,13 @@ virtual_champ[y][x] = "o"
 ```
 
 Ainsi tu pourra la modifier comme tu veux et dans l'ordre que tu veux. Et à la fin quand tu aura tout "dessiné" dedans tu l'afficheras ligne par ligne à l'écran. C'est ce qu'on appelle construire un "modèle".
+
+## Si on veut aller plus loin
+
+Liste de trucs cool si on voulait améliorer notre programme à fond :
+
+- gérer vraiment la transperence
+- prendre les paramètres (taille, nb d'arbre) en paramètre du programme
+- dessiner en couleur
+- etc
+
