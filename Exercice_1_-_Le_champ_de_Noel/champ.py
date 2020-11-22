@@ -1,26 +1,24 @@
-from random import *
+from random import randrange
 
-column = 5 #sans les bordures (+2)
-line = 5 #sans les bordures (+2)
+COLUMN = 10  # Sans les bordures (+2)
+LINE = 5  # Sans les bordures (+2)
 
+RAND_COLUMN = randrange(1, COLUMN+1) 
+RAND_LINE = randrange(1, LINE+1)
+BORDURE_VERTICALE = (COLUMN + 2) * '#'
 
+print(RAND_COLUMN)
+print(RAND_LINE)
 
-rand_column = randrange(1,column+1) 
-rand_line = randrange(1,line+1)
-print(rand_column)
-print(rand_line)
+ligne_sans_arbre = '#' + ' ' * (COLUMN) + '#'
+ligne_avec_arbres = '#' + ' ' * (COLUMN-1) + '#'
 
-list_sans_arbre = ['#'] + [' ']*(column) + ['#']
-list_arbre = ['#'] + [' ']*(column-1) + ['#']
-
-
-print((column+2)*"#")
-for i in range(1,line+1):
+print(BORDURE_VERTICALE)
+for i in range(1, LINE + 1):
     
-    if i != rand_line :
-        print ("".join(list_sans_arbre))
+    if i == RAND_LINE :             
+        print (ligne_avec_arbres[:RAND_COLUMN] 
+               + 'o' + ligne_avec_arbres[RAND_COLUMN:])
     else:
-        
-        list_arbre.insert(rand_column,'o')
-        print ("".join(list_arbre))
-print((column+2)*"#")
+        print(ligne_sans_arbre)
+print(BORDURE_VERTICALE)
