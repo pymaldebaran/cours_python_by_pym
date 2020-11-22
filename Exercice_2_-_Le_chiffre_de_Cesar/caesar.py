@@ -107,7 +107,7 @@ def main():
     print()
 
     print("Let's decipher (will it work?!)")
-    DECIPHER_TEXT = do_cipher(PLAIN_TEXT, KEY)
+    DECIPHER_TEXT = do_decipher(PLAIN_TEXT, KEY)
     print("Decipher text:", DECIPHER_TEXT)
     print()
 
