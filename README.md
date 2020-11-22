@@ -16,6 +16,7 @@ peut faire VRAIMENT avec !
 	- [More on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 	- ...et[Tuples and sequences](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
 	- ...et bien sûr [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+6.	Comment bien écrire son code python [Style guide for Python code](https://www.python.org/dev/peps/pep-0008/). Mais bon c'est un peu chiant et long... ça tombe bien Sam & Max (un super site... mais qui utilise hyper souvent des exemple de cul pour ses code... faut juste le savoir...) a fait un parfait résumé en français en plus : [Le PEP8 en résumé](http://sametmax.com/le-pep8-en-resume/).
 
 Je sais que c'est un peu technique... mais c'est hélas nécessaire à lire au moins une fois (il dois y avoir une version en français de chaque... moi je lis tout en anglais... tu peux changer ça en haut de la page à chaque fois)
 
