@@ -3,43 +3,39 @@
 from random import randrange
 
 def main():
-    NB_COLUMN = 10  # Sans les bordures (+2)
-    NB_LINES = 5  # Sans les bordures (+2)
+    TREE = ["   ^","  ^ ^"," ( o )","( o o )","   U"] # Columns = 7 Lines = 5
+    NB_TREES = 2
+    
+    NB_COLUMN = 20  # Min 7+2+2 = 11 (sans les bordures (+2))
+    NB_LINES = 12   # Min 5+3 = 8 (sans les bordures (+2))
+    
     VERTICAL_EDGE = (NB_COLUMN + 2) * '#'
-    NB_TREES = 5
-
     LINE_WO_TREE = '#' + ' ' * (NB_COLUMN) + '#'
-    line_w_trees = ['#'] + [' '] * (NB_COLUMN) + ['#']
+    forest = [VERTICAL_EDGE] + [LINE_WO_TREE for i in range(NB_LINES)] + [VERTICAL_EDGE]
+    
+    TREE_COORD = [(randrange(4, NB_COLUMN + 1 - 3),randrange(5, NB_LINES + 1)) for tree in range(NB_TREES)]
 
-    TREE_COORD = []
-    X_COORD = []   
-    Y_COORD = []
-
-    for tree in range(NB_TREES):
-        TREE_COORD.append((randrange(1, NB_COLUMN + 1),randrange(1, NB_LINES + 1)))
-        X_COORD.append(TREE_COORD[tree][0])
-        Y_COORD.append(TREE_COORD[tree][1])
-
-    print(TREE_COORD,"\n")
+    TREE_COORD = sorted(TREE_COORD, key=lambda y: y[1]) 
+    X_COORD = [TREE_COORD[tree][0] for tree in range(NB_TREES)]   
+    Y_COORD = [TREE_COORD[tree][1] for tree in range(NB_TREES)]    
+    
+    print(TREE_COORD)
     print(X_COORD)
-    print(Y_COORD, "\n")   
-
-
-    print(VERTICAL_EDGE)
-    for i in range(1, NB_LINES + 1):
-        if i in Y_COORD:
-            for (x,y) in TREE_COORD:
-                if i == y:
-                    line_w_trees.remove(' ')
-                    line_w_trees.insert(x,'o')
-            print(''.join(line_w_trees))
-            for o in line_w_trees:
-                if o == 'o':
-                    line_w_trees.remove('o')
-                    line_w_trees.insert(x,' ')
-        else:
-            print(LINE_WO_TREE)
-    print(VERTICAL_EDGE)   
+    print(Y_COORD, "\n")
+    
+    for y in range(NB_LINES+2):
+        forest[y] = list(forest[y].strip())
+       
+    for i in range(NB_TREES):  
+        forest[Y_COORD[i]-4][X_COORD[i]-3:(X_COORD[i]-3+len(TREE[0]))] = TREE[0]
+        forest[Y_COORD[i]-3][X_COORD[i]-3:(X_COORD[i]-3+len(TREE[1]))] = TREE[1]
+        forest[Y_COORD[i]-2][X_COORD[i]-3:(X_COORD[i]-3+len(TREE[2]))] = TREE[2] 
+        forest[Y_COORD[i]-1][X_COORD[i]-3:(X_COORD[i]-3+len(TREE[3]))] = TREE[3]
+        forest[Y_COORD[i]-0][X_COORD[i]-3:(X_COORD[i]-3+len(TREE[4]))] = TREE[4]        
+        
+    for i in range(len(forest)):
+        print(''.join(forest[i]))    
+    print("\n") 
     
 if __name__ == '__main__':
     main()
