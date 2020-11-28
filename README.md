@@ -23,5 +23,5 @@ Je sais que c'est un peu technique... mais c'est hélas nécessaire à lire au m
 ## Les exercices
 
 -	[Exercice 1 - Le champ de Noël](Exercice_1_-_Le_champ_de_Noel/README.md)
--	**coming soon**
+-	[Exercice 2 - Le chiffre de César](Exercice_2_-_Le_chiffre_de_Cesar/README.md)
 
