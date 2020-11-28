@@ -81,15 +81,36 @@ Je t'invite tout de même à faire attention... dans le chiffre de César l'alph
 ']'
 """
 
+import string
+
+
+def shift(container: str, amount: int) -> str:
+    """Shift container by amount (put back at the start outside shifted elements from the end)."""
+    new_start = amount % len(container)
+    return container[new_start:] + container[:new_start]
+
 
 def do_cipher(plain_text: str, key: int) -> str:
-    # Met ton code ici
-    return "Il faudrait retourner un vrai truc ;)"
+    """
+    Cipher plain text from caesar encryption key.
+    Treat insensitive-case input plain text and output ciphered text upper cased.
+    """
+    plain_text_upper = plain_text.upper()
+    # create intermediate cipher alphabet shifted with key
+    CIPHER_ALBAPHET_UPPER = shift(string.ascii_uppercase, -key)
+    # Translation table that map classic alphabet to cipher alphabet shifted with the key. In the
+    # case of characters that are not in plain alphabet, they remain unchanged, such as spaces.
+    TRANSLATION_TABLE = plain_text_upper.maketrans(string.ascii_uppercase, CIPHER_ALBAPHET_UPPER)
+    # apply translation
+    return plain_text_upper.translate(TRANSLATION_TABLE)
 
 
 def do_decipher(cipher_text: str, key: int) -> str:
-    # Met ton code ici
-    return "Il faudrait retourner un vrai truc ;)"
+    """
+    Decipher encrypted text from caesar encryption key.
+    Operations are symmetric to do_cipher, thus we call it with opposed key.
+    """
+    return do_cipher(cipher_text, -key)
 
 
 def main():
@@ -107,7 +128,7 @@ def main():
     print()
 
     print("Let's decipher (will it work?!)")
-    DECIPHER_TEXT = do_cipher(PLAIN_TEXT, KEY)
+    DECIPHER_TEXT = do_decipher(CIPHER_TEXT, KEY)
     print("Decipher text:", DECIPHER_TEXT)
     print()
 
